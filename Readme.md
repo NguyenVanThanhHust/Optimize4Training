@@ -1,5 +1,10 @@
 # Optimize for training
 
+Run mnist with DALI and pytorhc lightning
+```
+python mnist_dali.py --learning_rate 0.001 --hidden_dim 128 --accelerator cuda
+```
+
 ## Install
 Build docker image
 ```
