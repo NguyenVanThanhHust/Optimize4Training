@@ -1,8 +1,12 @@
 # Optimize for training
 
-Run mnist with DALI and pytorhc lightning
+Run mnist with DALI and pytorch lightning
 ```
 python mnist_dali.py --learning_rate 0.001 --hidden_dim 128 --accelerator cuda
+```
+
+```
+python train_dali.py --learning_rate 0.001 --accelerator cuda
 ```
 
 ## Install
