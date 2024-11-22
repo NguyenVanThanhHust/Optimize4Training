@@ -45,8 +45,6 @@ trainset = torchvision.datasets.CIFAR10(
     root='./data', train=True, download=True, transform=transform_train)
 trainloader = torch.utils.data.DataLoader(
     trainset, batch_size=128, shuffle=True, num_workers=2)
-print(len(trainset))
-import sys; sys.exit(1)
 testset = torchvision.datasets.CIFAR10(
     root='./data', train=False, download=True, transform=transform_test)
 testloader = torch.utils.data.DataLoader(
@@ -157,7 +155,6 @@ def test(epoch):
         torch.save(state, f'./checkpoint/resnet_{epoch}_{str(acc)[:4]}.pth')
         best_acc = acc
     return acc
-
 
 start_time = time.perf_counter()
 for epoch in range(start_epoch, start_epoch+200):
