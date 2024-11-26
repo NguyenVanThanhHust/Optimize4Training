@@ -10,6 +10,8 @@ import pytorch_lightning as pl
 from torch.nn import functional as F
 from torch.utils.data import DataLoader, random_split
 
+import torchvision
+import torchvision.transforms as transforms
 from torchvision.datasets.mnist import MNIST
 from torchvision import transforms
 
@@ -18,16 +20,18 @@ import nvidia.dali.ops as ops
 import nvidia.dali.types as types
 from nvidia.dali.plugin.pytorch import DALIClassificationIterator
 
-class ExternalMNISTInputIterator(object):
-    def __init__(self, mnist_ds, batch_size) -> None:
+from models import ResNet18
+
+class ExternalCifarInputIterator(object):
+    def __init__(self, cifar_ds, batch_size) -> None:
         self.batch_size = batch_size
-        self.mnist_ds = mnist_ds
-        self.indices = list(range(len(self.mnist_ds)))
+        self.cifar_ds = cifar_ds
+        self.indices = list(range(len(self.cifar_ds)))
         shuffle(self.indices)
 
     def __iter__(self, ):
         self.i = 0
-        self.n = len(self.mnist_ds)
+        self.n = len(self.cifar_ds)
         return self
     
     def __next__(self):
@@ -35,7 +39,7 @@ class ExternalMNISTInputIterator(object):
         labels = []
         for _ in range(self.batch_size):
             index = self.indices[self.i]
-            img, label = self.mnist_ds[index]
+            img, label = self.cifar_ds[index]
             batch.append(img.numpy())
             labels.append(np.array([label],dtype = np.uint8))
             self.i = (self.i+1)%self.n
@@ -80,14 +84,11 @@ class LitClassifier(pl.LightningModule):
         self.hparams.hhidden_dim = hidden_dim
         self.hparams.learning_rate = lr
         self.save_hyperparameters()
-        self.l1 = torch.nn.Linear(28 * 28, self.hparams.hidden_dim)
-        self.l2 = torch.nn.Linear(self.hparams.hidden_dim, 10)
+        self.net = ResNet18()
 
     def forward(self, x):
-        x = x.view(x.size(0), -1)
-        x = F.relu(self.l1(x))
-        x = F.relu(self.l2(x))
-        return x
+        output = self.net(x)
+        return output
 
 
     def split_batch(self, batch):
@@ -131,25 +132,39 @@ def cli_main():
     # ------------
     # data
     # ------------
-    dataset = MNIST('./data', train=True, download=True, transform=transforms.ToTensor())
-    mnist_test = MNIST('./data', train=False, download=True, transform=transforms.ToTensor())
-    mnist_train, mnist_val = random_split(dataset, [55000, 5000])
+    
+    transform_train = transforms.Compose([
+        transforms.RandomCrop(32, padding=4),
+        transforms.RandomHorizontalFlip(),
+        transforms.ToTensor(),
+        transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
+    ])
 
-    external_input_iterator_train = ExternalMNISTInputIterator(mnist_ds=mnist_train, batch_size=args.batch_size)
-    external_input_iterator_val = ExternalMNISTInputIterator(mnist_ds=mnist_val, batch_size=args.batch_size)
-    external_input_iterator_test = ExternalMNISTInputIterator(mnist_ds=mnist_test, batch_size=args.batch_size)
+    transform_test = transforms.Compose([
+        transforms.ToTensor(),
+        transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
+    ])
+
+    trainset = torchvision.datasets.CIFAR10(
+        root='./data', train=True, download=True, transform=transform_train)
+    testset = torchvision.datasets.CIFAR10(
+        root='./data', train=False, download=True, transform=transform_test)
+
+    external_input_iterator_train = ExternalCifarInputIterator(cifar_ds=trainset, batch_size=args.batch_size)
+    external_input_iterator_val = ExternalCifarInputIterator(cifar_ds=trainset, batch_size=args.batch_size)
+    external_input_iterator_test = ExternalCifarInputIterator(cifar_ds=testset, batch_size=args.batch_size)
 
     pipe_train = ExternalSourcePipeline(external_iterator=external_input_iterator_train, batch_size=args.batch_size, num_threads=2, device_id=0)
     pipe_train.build()
-    train_loader = DALIClassificationLoader(pipe_train, size=len(mnist_train), auto_reset=True, last_batch_policy=False)
+    train_loader = DALIClassificationLoader(pipe_train, size=len(trainset), auto_reset=True, last_batch_policy=False)
 
     pipe_val = ExternalSourcePipeline(external_iterator=external_input_iterator_val, batch_size=args.batch_size, num_threads=2, device_id=0)
     pipe_val.build()
-    val_loader = DALIClassificationLoader(pipe_val, size=len(mnist_val), auto_reset=True, last_batch_policy=False)
+    val_loader = DALIClassificationLoader(pipe_val, size=len(trainset), auto_reset=True, last_batch_policy=False)
 
     pipe_test = ExternalSourcePipeline(external_iterator=external_input_iterator_test, batch_size=args.batch_size, num_threads=2, device_id=0)
     pipe_test.build()
-    test_loader = DALIClassificationLoader(pipe_test, size=len(mnist_test), auto_reset=True, last_batch_policy=False)
+    test_loader = DALIClassificationLoader(pipe_test, size=len(testset), auto_reset=True, last_batch_policy=False)
 
 
     # ------------
@@ -166,10 +181,10 @@ def cli_main():
     # ------------
     # testing
     # ------------
-    trainer.test(dataloaders=test_loader)
+    trainer.test(test_dataloaders=test_loader)
 
 
 if __name__ == '__main__':
     cli_main()
 
-# python mnist_dali.py --learning_rate 0.001 --hidden_dim 128 --accelerator cuda
+# python cifar_dali.py --learning_rate 0.001 --hidden_dim 128 --accelerator cuda

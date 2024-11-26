@@ -9,7 +9,10 @@ python mnist_dali.py --learning_rate 0.001 --hidden_dim 128 --accelerator cuda
 python train_dali.py --learning_rate 0.001 --accelerator cuda
 ```
 
-
+## Result
+| Data      | Device      | Method | Train time | Total Time |
+| ------------- | ------------- |------------- |------------- |------------- |
+| MNIST | GeForce RTX 3060 Mobile / Max-Q | Baseline pytorch | fad | dsfa| 
 
 ## Reference
 [ffcv_docker](https://github.com/kschuerholt/pytorch_cuda_opencv_ffcv_docker)

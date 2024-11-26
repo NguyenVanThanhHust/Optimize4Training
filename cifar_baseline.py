@@ -58,13 +58,8 @@ print('==> Building model..')
 # net = VGG('VGG19')
 net = ResNet18()
 net = net.to(device)
-COMPILE = True
-if device == 'cuda' and not COMPILE:
-    net = torch.nn.DataParallel(net)
-    cudnn.benchmark = True
-if device == 'cuda' and COMPILE:
-    net = torch.compile(net, mode='default')
-    cudnn.benchmark = True
+net = torch.nn.DataParallel(net)
+cudnn.benchmark = False
 
 if args.resume:
     # Load checkpoint.
@@ -113,8 +108,6 @@ def train(epoch):
         total += targets.size(0)
         correct += predicted.eq(targets).sum().item()
 
-        # print(batch_idx, len(trainloader), 'Loss: %.3f | Acc: %.3f%% (%d/%d)'
-        #              % (train_loss/(batch_idx+1), 100.*correct/total, correct, total))
         writer.add_scalar("Loss/train", loss.item(), batch_idx+train_loader_size*epoch)
 
 @timeit
