@@ -1,0 +1,862 @@
+Epoch: 0
+Function train(0,) {} Took 29.5555 seconds
+Epoch: 0 acc: 42.17
+Saving..
+Function test(0,) {} Took 2.2023 seconds
+
+Epoch: 1
+Function train(1,) {} Took 28.1556 seconds
+Epoch: 1 acc: 53.49
+Saving..
+Function test(1,) {} Took 2.0504 seconds
+
+Epoch: 2
+Function train(2,) {} Took 28.4510 seconds
+Epoch: 2 acc: 61.17
+Saving..
+Function test(2,) {} Took 2.0611 seconds
+
+Epoch: 3
+Function train(3,) {} Took 28.6301 seconds
+Epoch: 3 acc: 67.29
+Saving..
+Function test(3,) {} Took 2.0656 seconds
+
+Epoch: 4
+Function train(4,) {} Took 28.6816 seconds
+Epoch: 4 acc: 73.29
+Saving..
+Function test(4,) {} Took 2.0705 seconds
+
+Epoch: 5
+Function train(5,) {} Took 28.6422 seconds
+Epoch: 5 acc: 73.94
+Saving..
+Function test(5,) {} Took 2.0666 seconds
+
+Epoch: 6
+Function train(6,) {} Took 28.6444 seconds
+Epoch: 6 acc: 78.46
+Saving..
+Function test(6,) {} Took 2.0685 seconds
+
+Epoch: 7
+Function train(7,) {} Took 28.6531 seconds
+Epoch: 7 acc: 74.55
+Function test(7,) {} Took 2.0303 seconds
+
+Epoch: 8
+Function train(8,) {} Took 28.6714 seconds
+Epoch: 8 acc: 78.76
+Saving..
+Function test(8,) {} Took 2.0785 seconds
+
+Epoch: 9
+Function train(9,) {} Took 28.7072 seconds
+Epoch: 9 acc: 80.66
+Saving..
+Function test(9,) {} Took 2.0789 seconds
+
+Epoch: 10
+Function train(10,) {} Took 28.7324 seconds
+Epoch: 10 acc: 76.34
+Function test(10,) {} Took 2.0294 seconds
+
+Epoch: 11
+Function train(11,) {} Took 28.7570 seconds
+Epoch: 11 acc: 81.11
+Saving..
+Function test(11,) {} Took 2.0761 seconds
+
+Epoch: 12
+Function train(12,) {} Took 28.7590 seconds
+Epoch: 12 acc: 82.77
+Saving..
+Function test(12,) {} Took 2.0928 seconds
+
+Epoch: 13
+Function train(13,) {} Took 28.7889 seconds
+Epoch: 13 acc: 82.15
+Function test(13,) {} Took 2.0253 seconds
+
+Epoch: 14
+Function train(14,) {} Took 28.8029 seconds
+Epoch: 14 acc: 80.26
+Function test(14,) {} Took 2.0256 seconds
+
+Epoch: 15
+Function train(15,) {} Took 28.8086 seconds
+Epoch: 15 acc: 79.65
+Function test(15,) {} Took 2.0372 seconds
+
+Epoch: 16
+Function train(16,) {} Took 28.8170 seconds
+Epoch: 16 acc: 82.87
+Saving..
+Function test(16,) {} Took 2.0880 seconds
+
+Epoch: 17
+Function train(17,) {} Took 28.8288 seconds
+Epoch: 17 acc: 82.26
+Function test(17,) {} Took 2.0320 seconds
+
+Epoch: 18
+Function train(18,) {} Took 28.8527 seconds
+Epoch: 18 acc: 78.48
+Function test(18,) {} Took 2.0376 seconds
+
+Epoch: 19
+Function train(19,) {} Took 28.8641 seconds
+Epoch: 19 acc: 80.78
+Function test(19,) {} Took 2.0350 seconds
+
+Epoch: 20
+Function train(20,) {} Took 28.8533 seconds
+Epoch: 20 acc: 83.84
+Saving..
+Function test(20,) {} Took 2.0932 seconds
+
+Epoch: 21
+Function train(21,) {} Took 28.8856 seconds
+Epoch: 21 acc: 82.25
+Function test(21,) {} Took 2.0276 seconds
+
+Epoch: 22
+Function train(22,) {} Took 28.8827 seconds
+Epoch: 22 acc: 78.45
+Function test(22,) {} Took 2.0345 seconds
+
+Epoch: 23
+Function train(23,) {} Took 28.8947 seconds
+Epoch: 23 acc: 84.15
+Saving..
+Function test(23,) {} Took 2.1004 seconds
+
+Epoch: 24
+Function train(24,) {} Took 28.9283 seconds
+Epoch: 24 acc: 85.86
+Saving..
+Function test(24,) {} Took 2.1063 seconds
+
+Epoch: 25
+Function train(25,) {} Took 28.9027 seconds
+Epoch: 25 acc: 84.03
+Function test(25,) {} Took 2.0352 seconds
+
+Epoch: 26
+Function train(26,) {} Took 28.9113 seconds
+Epoch: 26 acc: 82.37
+Function test(26,) {} Took 2.0467 seconds
+
+Epoch: 27
+Function train(27,) {} Took 28.9337 seconds
+Epoch: 27 acc: 81.73
+Function test(27,) {} Took 2.0381 seconds
+
+Epoch: 28
+Function train(28,) {} Took 28.9198 seconds
+Epoch: 28 acc: 81.48
+Function test(28,) {} Took 2.0386 seconds
+
+Epoch: 29
+Function train(29,) {} Took 28.9423 seconds
+Epoch: 29 acc: 83.51
+Function test(29,) {} Took 2.0523 seconds
+
+Epoch: 30
+Function train(30,) {} Took 28.9436 seconds
+Epoch: 30 acc: 83.8
+Function test(30,) {} Took 2.0416 seconds
+
+Epoch: 31
+Function train(31,) {} Took 28.9701 seconds
+Epoch: 31 acc: 83.85
+Function test(31,) {} Took 2.0492 seconds
+
+Epoch: 32
+Function train(32,) {} Took 28.9742 seconds
+Epoch: 32 acc: 78.08
+Function test(32,) {} Took 2.0405 seconds
+
+Epoch: 33
+Function train(33,) {} Took 28.9699 seconds
+Epoch: 33 acc: 84.8
+Function test(33,) {} Took 2.0378 seconds
+
+Epoch: 34
+Function train(34,) {} Took 29.0021 seconds
+Epoch: 34 acc: 85.74
+Function test(34,) {} Took 2.0437 seconds
+
+Epoch: 35
+Function train(35,) {} Took 29.0003 seconds
+Epoch: 35 acc: 79.79
+Function test(35,) {} Took 2.0427 seconds
+
+Epoch: 36
+Function train(36,) {} Took 29.0210 seconds
+Epoch: 36 acc: 82.12
+Function test(36,) {} Took 2.0534 seconds
+
+Epoch: 37
+Function train(37,) {} Took 29.0590 seconds
+Epoch: 37 acc: 83.09
+Function test(37,) {} Took 2.0582 seconds
+
+Epoch: 38
+Function train(38,) {} Took 29.0665 seconds
+Epoch: 38 acc: 85.93
+Saving..
+Function test(38,) {} Took 2.1244 seconds
+
+Epoch: 39
+Function train(39,) {} Took 29.2218 seconds
+Epoch: 39 acc: 84.28
+Function test(39,) {} Took 2.0654 seconds
+
+Epoch: 40
+Function train(40,) {} Took 28.9193 seconds
+Epoch: 40 acc: 85.45
+Function test(40,) {} Took 2.0597 seconds
+
+Epoch: 41
+Function train(41,) {} Took 28.9309 seconds
+Epoch: 41 acc: 82.79
+Function test(41,) {} Took 2.0549 seconds
+
+Epoch: 42
+Function train(42,) {} Took 28.8683 seconds
+Epoch: 42 acc: 86.32
+Saving..
+Function test(42,) {} Took 2.1055 seconds
+
+Epoch: 43
+Function train(43,) {} Took 28.8231 seconds
+Epoch: 43 acc: 80.32
+Function test(43,) {} Took 2.0397 seconds
+
+Epoch: 44
+Function train(44,) {} Took 28.8272 seconds
+Epoch: 44 acc: 82.82
+Function test(44,) {} Took 2.0478 seconds
+
+Epoch: 45
+Function train(45,) {} Took 28.8485 seconds
+Epoch: 45 acc: 87.05
+Saving..
+Function test(45,) {} Took 2.1273 seconds
+
+Epoch: 46
+Function train(46,) {} Took 28.8655 seconds
+Epoch: 46 acc: 83.23
+Function test(46,) {} Took 2.0643 seconds
+
+Epoch: 47
+Function train(47,) {} Took 28.8555 seconds
+Epoch: 47 acc: 85.58
+Function test(47,) {} Took 2.0435 seconds
+
+Epoch: 48
+Function train(48,) {} Took 28.8582 seconds
+Epoch: 48 acc: 84.31
+Function test(48,) {} Took 2.0561 seconds
+
+Epoch: 49
+Function train(49,) {} Took 28.8622 seconds
+Epoch: 49 acc: 83.85
+Function test(49,) {} Took 2.0350 seconds
+
+Epoch: 50
+Function train(50,) {} Took 28.8251 seconds
+Epoch: 50 acc: 84.43
+Function test(50,) {} Took 2.0487 seconds
+
+Epoch: 51
+Function train(51,) {} Took 28.8797 seconds
+Epoch: 51 acc: 85.6
+Function test(51,) {} Took 2.0580 seconds
+
+Epoch: 52
+Function train(52,) {} Took 28.9701 seconds
+Epoch: 52 acc: 83.0
+Function test(52,) {} Took 2.0559 seconds
+
+Epoch: 53
+Function train(53,) {} Took 29.0439 seconds
+Epoch: 53 acc: 84.83
+Function test(53,) {} Took 2.0652 seconds
+
+Epoch: 54
+Function train(54,) {} Took 29.0719 seconds
+Epoch: 54 acc: 86.29
+Function test(54,) {} Took 2.0724 seconds
+
+Epoch: 55
+Function train(55,) {} Took 29.0526 seconds
+Epoch: 55 acc: 88.56
+Saving..
+Function test(55,) {} Took 2.1151 seconds
+
+Epoch: 56
+Function train(56,) {} Took 28.9976 seconds
+Epoch: 56 acc: 84.9
+Function test(56,) {} Took 2.0564 seconds
+
+Epoch: 57
+Function train(57,) {} Took 28.9442 seconds
+Epoch: 57 acc: 83.9
+Function test(57,) {} Took 2.0642 seconds
+
+Epoch: 58
+Function train(58,) {} Took 28.9561 seconds
+Epoch: 58 acc: 88.26
+Function test(58,) {} Took 2.0773 seconds
+
+Epoch: 59
+Function train(59,) {} Took 28.9527 seconds
+Epoch: 59 acc: 86.67
+Function test(59,) {} Took 2.0879 seconds
+
+Epoch: 60
+Function train(60,) {} Took 28.9367 seconds
+Epoch: 60 acc: 82.81
+Function test(60,) {} Took 2.0749 seconds
+
+Epoch: 61
+Function train(61,) {} Took 28.9374 seconds
+Epoch: 61 acc: 83.0
+Function test(61,) {} Took 2.0469 seconds
+
+Epoch: 62
+Function train(62,) {} Took 28.9378 seconds
+Epoch: 62 acc: 85.51
+Function test(62,) {} Took 2.0452 seconds
+
+Epoch: 63
+Function train(63,) {} Took 28.9095 seconds
+Epoch: 63 acc: 86.42
+Function test(63,) {} Took 2.0397 seconds
+
+Epoch: 64
+Function train(64,) {} Took 28.8982 seconds
+Epoch: 64 acc: 84.27
+Function test(64,) {} Took 2.0484 seconds
+
+Epoch: 65
+Function train(65,) {} Took 28.8949 seconds
+Epoch: 65 acc: 87.84
+Function test(65,) {} Took 2.0628 seconds
+
+Epoch: 66
+Function train(66,) {} Took 28.9043 seconds
+Epoch: 66 acc: 86.92
+Function test(66,) {} Took 2.0531 seconds
+
+Epoch: 67
+Function train(67,) {} Took 28.8853 seconds
+Epoch: 67 acc: 84.86
+Function test(67,) {} Took 2.0431 seconds
+
+Epoch: 68
+Function train(68,) {} Took 28.8723 seconds
+Epoch: 68 acc: 86.43
+Function test(68,) {} Took 2.0499 seconds
+
+Epoch: 69
+Function train(69,) {} Took 28.8906 seconds
+Epoch: 69 acc: 85.3
+Function test(69,) {} Took 2.0430 seconds
+
+Epoch: 70
+Function train(70,) {} Took 28.9232 seconds
+Epoch: 70 acc: 85.05
+Function test(70,) {} Took 2.0592 seconds
+
+Epoch: 71
+Function train(71,) {} Took 29.0312 seconds
+Epoch: 71 acc: 85.17
+Function test(71,) {} Took 2.0670 seconds
+
+Epoch: 72
+Function train(72,) {} Took 29.0807 seconds
+Epoch: 72 acc: 87.25
+Function test(72,) {} Took 2.0679 seconds
+
+Epoch: 73
+Function train(73,) {} Took 29.1002 seconds
+Epoch: 73 acc: 87.26
+Function test(73,) {} Took 2.0712 seconds
+
+Epoch: 74
+Function train(74,) {} Took 29.0687 seconds
+Epoch: 74 acc: 86.62
+Function test(74,) {} Took 2.0844 seconds
+
+Epoch: 75
+Function train(75,) {} Took 28.9583 seconds
+Epoch: 75 acc: 85.72
+Function test(75,) {} Took 2.0513 seconds
+
+Epoch: 76
+Function train(76,) {} Took 28.9288 seconds
+Epoch: 76 acc: 86.48
+Function test(76,) {} Took 2.0405 seconds
+
+Epoch: 77
+Function train(77,) {} Took 28.9356 seconds
+Epoch: 77 acc: 86.61
+Function test(77,) {} Took 2.0642 seconds
+
+Epoch: 78
+Function train(78,) {} Took 28.9430 seconds
+Epoch: 78 acc: 87.19
+Function test(78,) {} Took 2.1027 seconds
+
+Epoch: 79
+Function train(79,) {} Took 28.9685 seconds
+Epoch: 79 acc: 84.93
+Function test(79,) {} Took 2.0675 seconds
+
+Epoch: 80
+Function train(80,) {} Took 28.9884 seconds
+Epoch: 80 acc: 87.9
+Function test(80,) {} Took 2.0651 seconds
+
+Epoch: 81
+Function train(81,) {} Took 28.9844 seconds
+Epoch: 81 acc: 87.45
+Function test(81,) {} Took 2.0566 seconds
+
+Epoch: 82
+Function train(82,) {} Took 28.9634 seconds
+Epoch: 82 acc: 86.61
+Function test(82,) {} Took 2.0565 seconds
+
+Epoch: 83
+Function train(83,) {} Took 28.9329 seconds
+Epoch: 83 acc: 84.97
+Function test(83,) {} Took 2.0493 seconds
+
+Epoch: 84
+Function train(84,) {} Took 28.9281 seconds
+Epoch: 84 acc: 87.64
+Function test(84,) {} Took 2.0442 seconds
+
+Epoch: 85
+Function train(85,) {} Took 28.8763 seconds
+Epoch: 85 acc: 87.3
+Function test(85,) {} Took 2.0482 seconds
+
+Epoch: 86
+Function train(86,) {} Took 28.8652 seconds
+Epoch: 86 acc: 88.75
+Saving..
+Function test(86,) {} Took 2.0996 seconds
+
+Epoch: 87
+Function train(87,) {} Took 28.9039 seconds
+Epoch: 87 acc: 87.73
+Function test(87,) {} Took 2.0450 seconds
+
+Epoch: 88
+Function train(88,) {} Took 28.9986 seconds
+Epoch: 88 acc: 86.01
+Function test(88,) {} Took 2.0555 seconds
+
+Epoch: 89
+Function train(89,) {} Took 29.0703 seconds
+Epoch: 89 acc: 89.2
+Saving..
+Function test(89,) {} Took 2.1249 seconds
+
+Epoch: 90
+Function train(90,) {} Took 29.1277 seconds
+Epoch: 90 acc: 89.28
+Saving..
+Function test(90,) {} Took 2.1296 seconds
+
+Epoch: 91
+Function train(91,) {} Took 29.1020 seconds
+Epoch: 91 acc: 87.99
+Function test(91,) {} Took 2.0689 seconds
+
+Epoch: 92
+Function train(92,) {} Took 29.1311 seconds
+Epoch: 92 acc: 88.35
+Function test(92,) {} Took 2.0651 seconds
+
+Epoch: 93
+Function train(93,) {} Took 29.0218 seconds
+Epoch: 93 acc: 89.22
+Function test(93,) {} Took 2.0432 seconds
+
+Epoch: 94
+Function train(94,) {} Took 28.9545 seconds
+Epoch: 94 acc: 89.94
+Saving..
+Function test(94,) {} Took 2.1111 seconds
+
+Epoch: 95
+Function train(95,) {} Took 28.9073 seconds
+Epoch: 95 acc: 89.1
+Function test(95,) {} Took 2.0388 seconds
+
+Epoch: 96
+Function train(96,) {} Took 28.8650 seconds
+Epoch: 96 acc: 89.34
+Function test(96,) {} Took 2.0370 seconds
+
+Epoch: 97
+Function train(97,) {} Took 28.8484 seconds
+Epoch: 97 acc: 88.36
+Function test(97,) {} Took 2.0410 seconds
+
+Epoch: 98
+Function train(98,) {} Took 28.8243 seconds
+Epoch: 98 acc: 88.85
+Function test(98,) {} Took 2.0457 seconds
+
+Epoch: 99
+Function train(99,) {} Took 28.8983 seconds
+Epoch: 99 acc: 89.15
+Function test(99,) {} Took 2.0382 seconds
+
+Epoch: 100
+Function train(100,) {} Took 28.8411 seconds
+Epoch: 100 acc: 87.83
+Function test(100,) {} Took 2.0369 seconds
+
+Epoch: 101
+Function train(101,) {} Took 28.8283 seconds
+Epoch: 101 acc: 88.94
+Function test(101,) {} Took 2.0269 seconds
+
+Epoch: 102
+Function train(102,) {} Took 28.7960 seconds
+Epoch: 102 acc: 87.15
+Function test(102,) {} Took 2.0342 seconds
+
+Epoch: 103
+Function train(103,) {} Took 28.8666 seconds
+Epoch: 103 acc: 88.27
+Function test(103,) {} Took 2.0414 seconds
+
+Epoch: 104
+Function train(104,) {} Took 28.9416 seconds
+Epoch: 104 acc: 90.23
+Saving..
+Function test(104,) {} Took 2.1037 seconds
+
+Epoch: 105
+Function train(105,) {} Took 28.9762 seconds
+Epoch: 105 acc: 88.99
+Function test(105,) {} Took 2.0444 seconds
+
+Epoch: 106
+Function train(106,) {} Took 29.0001 seconds
+Epoch: 106 acc: 89.37
+Function test(106,) {} Took 2.0356 seconds
+
+Epoch: 107
+Function train(107,) {} Took 29.0157 seconds
+Epoch: 107 acc: 89.53
+Function test(107,) {} Took 2.0485 seconds
+
+Epoch: 108
+Function train(108,) {} Took 29.0195 seconds
+Epoch: 108 acc: 86.77
+Function test(108,) {} Took 2.0439 seconds
+
+Epoch: 109
+Function train(109,) {} Took 29.0473 seconds
+Epoch: 109 acc: 88.76
+Function test(109,) {} Took 2.0469 seconds
+
+Epoch: 110
+Function train(110,) {} Took 29.0608 seconds
+Epoch: 110 acc: 89.41
+Function test(110,) {} Took 2.0419 seconds
+
+Epoch: 111
+Function train(111,) {} Took 29.0709 seconds
+Epoch: 111 acc: 89.18
+Function test(111,) {} Took 2.0494 seconds
+
+Epoch: 112
+Function train(112,) {} Took 29.0606 seconds
+Epoch: 112 acc: 88.6
+Function test(112,) {} Took 2.0535 seconds
+
+Epoch: 113
+Function train(113,) {} Took 29.0620 seconds
+Epoch: 113 acc: 90.19
+Function test(113,) {} Took 2.0561 seconds
+
+Epoch: 114
+Function train(114,) {} Took 29.0969 seconds
+Epoch: 114 acc: 90.33
+Saving..
+Function test(114,) {} Took 2.1983 seconds
+
+Epoch: 115
+Function train(115,) {} Took 29.0460 seconds
+Epoch: 115 acc: 89.94
+Function test(115,) {} Took 2.0423 seconds
+
+Epoch: 116
+Function train(116,) {} Took 28.9217 seconds
+Epoch: 116 acc: 89.64
+Function test(116,) {} Took 2.0270 seconds
+
+Epoch: 117
+Function train(117,) {} Took 28.8824 seconds
+Epoch: 117 acc: 90.73
+Saving..
+Function test(117,) {} Took 2.0922 seconds
+
+Epoch: 118
+Function train(118,) {} Took 28.8303 seconds
+Epoch: 118 acc: 90.57
+Function test(118,) {} Took 2.0255 seconds
+
+Epoch: 119
+Function train(119,) {} Took 28.8371 seconds
+Epoch: 119 acc: 89.97
+Function test(119,) {} Took 2.0257 seconds
+
+Epoch: 120
+Function train(120,) {} Took 28.8091 seconds
+Epoch: 120 acc: 89.23
+Function test(120,) {} Took 2.0214 seconds
+
+Epoch: 121
+Function train(121,) {} Took 28.7975 seconds
+Epoch: 121 acc: 90.5
+Function test(121,) {} Took 2.0289 seconds
+
+Epoch: 122
+Function train(122,) {} Took 28.7565 seconds
+Epoch: 122 acc: 90.83
+Saving..
+Function test(122,) {} Took 2.0919 seconds
+
+Epoch: 123
+Function train(123,) {} Took 28.7374 seconds
+Epoch: 123 acc: 91.76
+Saving..
+Function test(123,) {} Took 2.0900 seconds
+
+Epoch: 124
+Function train(124,) {} Took 28.7620 seconds
+Epoch: 124 acc: 89.94
+Function test(124,) {} Took 2.0281 seconds
+
+Epoch: 125
+Function train(125,) {} Took 28.7326 seconds
+Epoch: 125 acc: 89.78
+Function test(125,) {} Took 2.0226 seconds
+
+Epoch: 126
+Function train(126,) {} Took 28.7957 seconds
+Epoch: 126 acc: 89.38
+Function test(126,) {} Took 2.0457 seconds
+
+Epoch: 127
+Function train(127,) {} Took 28.8743 seconds
+Epoch: 127 acc: 88.54
+Function test(127,) {} Took 2.0384 seconds
+
+Epoch: 128
+Function train(128,) {} Took 28.9646 seconds
+Epoch: 128 acc: 90.83
+Function test(128,) {} Took 2.0558 seconds
+
+Epoch: 129
+Function train(129,) {} Took 28.9859 seconds
+Epoch: 129 acc: 89.26
+Function test(129,) {} Took 2.0344 seconds
+
+Epoch: 130
+Function train(130,) {} Took 28.9750 seconds
+Epoch: 130 acc: 89.38
+Function test(130,) {} Took 2.0393 seconds
+
+Epoch: 131
+Function train(131,) {} Took 29.0451 seconds
+Epoch: 131 acc: 90.21
+Function test(131,) {} Took 2.0431 seconds
+
+Epoch: 132
+Function train(132,) {} Took 29.1527 seconds
+Epoch: 132 acc: 91.01
+Function test(132,) {} Took 2.1464 seconds
+
+Epoch: 133
+Function train(133,) {} Took 29.1222 seconds
+Epoch: 133 acc: 91.39
+Function test(133,) {} Took 2.0684 seconds
+
+Epoch: 134
+Function train(134,) {} Took 28.9841 seconds
+Epoch: 134 acc: 91.08
+Function test(134,) {} Took 2.0510 seconds
+
+Epoch: 135
+Function train(135,) {} Took 28.9046 seconds
+Epoch: 135 acc: 91.63
+Function test(135,) {} Took 2.0509 seconds
+
+Epoch: 136
+Function train(136,) {} Took 28.8763 seconds
+Epoch: 136 acc: 91.95
+Saving..
+Function test(136,) {} Took 2.1013 seconds
+
+Epoch: 137
+Function train(137,) {} Took 28.8469 seconds
+Epoch: 137 acc: 91.84
+Function test(137,) {} Took 2.0323 seconds
+
+Epoch: 138
+Function train(138,) {} Took 28.8828 seconds
+Epoch: 138 acc: 91.79
+Function test(138,) {} Took 2.0422 seconds
+
+Epoch: 139
+Function train(139,) {} Took 28.8596 seconds
+Epoch: 139 acc: 90.65
+Function test(139,) {} Took 2.0442 seconds
+
+Epoch: 140
+Function train(140,) {} Took 28.8255 seconds
+Epoch: 140 acc: 92.01
+Saving..
+Function test(140,) {} Took 2.0956 seconds
+
+Epoch: 141
+Function train(141,) {} Took 28.8556 seconds
+Epoch: 141 acc: 91.11
+Function test(141,) {} Took 2.0343 seconds
+
+Epoch: 142
+Function train(142,) {} Took 28.8515 seconds
+Epoch: 142 acc: 91.54
+Function test(142,) {} Took 2.0516 seconds
+
+Epoch: 143
+Function train(143,) {} Took 28.8649 seconds
+Epoch: 143 acc: 91.55
+Function test(143,) {} Took 2.0473 seconds
+
+Epoch: 144
+Function train(144,) {} Took 28.8862 seconds
+Epoch: 144 acc: 92.2
+Saving..
+Function test(144,) {} Took 2.1059 seconds
+
+Epoch: 145
+Function train(145,) {} Took 28.8896 seconds
+Epoch: 145 acc: 92.6
+Saving..
+Function test(145,) {} Took 2.1011 seconds
+
+Epoch: 146
+Function train(146,) {} Took 28.8910 seconds
+Epoch: 146 acc: 92.66
+Saving..
+Function test(146,) {} Took 2.1479 seconds
+
+Epoch: 147
+Function train(147,) {} Took 28.9398 seconds
+Epoch: 147 acc: 93.01
+Saving..
+Function test(147,) {} Took 2.1471 seconds
+
+Epoch: 148
+Function train(148,) {} Took 29.0070 seconds
+Epoch: 148 acc: 92.76
+Function test(148,) {} Took 2.0536 seconds
+
+Epoch: 149
+Function train(149,) {} Took 29.0653 seconds
+Epoch: 149 acc: 92.7
+Function test(149,) {} Took 2.0865 seconds
+
+Epoch: 150
+Function train(150,) {} Took 29.1011 seconds
+Epoch: 150 acc: 92.61
+Function test(150,) {} Took 2.0584 seconds
+
+Epoch: 151
+Function train(151,) {} Took 29.0370 seconds
+Epoch: 151 acc: 92.3
+Function test(151,) {} Took 2.0481 seconds
+
+Epoch: 152
+Function train(152,) {} Took 28.9726 seconds
+Epoch: 152 acc: 92.42
+Function test(152,) {} Took 2.0517 seconds
+
+Epoch: 153
+Function train(153,) {} Took 28.9279 seconds
+Epoch: 153 acc: 93.2
+Saving..
+Function test(153,) {} Took 2.1228 seconds
+
+Epoch: 154
+Function train(154,) {} Took 28.8974 seconds
+Epoch: 154 acc: 93.25
+Saving..
+Function test(154,) {} Took 2.1013 seconds
+
+Epoch: 155
+Function train(155,) {} Took 28.8957 seconds
+Epoch: 155 acc: 93.69
+Saving..
+Function test(155,) {} Took 2.1165 seconds
+
+Epoch: 156
+Function train(156,) {} Took 28.8688 seconds
+Epoch: 156 acc: 93.77
+Saving..
+Function test(156,) {} Took 2.1012 seconds
+
+Epoch: 157
+Function train(157,) {} Took 28.8661 seconds
+Epoch: 157 acc: 92.91
+Function test(157,) {} Took 2.0406 seconds
+
+Epoch: 158
+Function train(158,) {} Took 28.8745 seconds
+Epoch: 158 acc: 93.83
+Saving..
+Function test(158,) {} Took 2.1107 seconds
+
+Epoch: 159
+Function train(159,) {} Took 28.8466 seconds
+Epoch: 159 acc: 93.42
+Function test(159,) {} Took 2.0354 seconds
+
+Epoch: 160
+Function train(160,) {} Took 28.8457 seconds
+Epoch: 160 acc: 93.97
+Saving..
+Function test(160,) {} Took 2.0948 seconds
+
+Epoch: 161
+Function train(161,) {} Took 28.8473 seconds
+Epoch: 161 acc: 93.65
+Function test(161,) {} Took 2.0329 seconds
+
+Epoch: 162
+Function train(162,) {} Took 28.9704 seconds
+Epoch: 162 acc: 93.96
+Function test(162,) {} Took 2.1176 seconds
+
+Epoch: 163
+Function train(163,) {} Took 28.9889 seconds
+Epoch: 163 acc: 94.2
+Saving..
+Function test(163,) {} Took 2.1203 seconds
+Done at epoch: 163
+Total train time: 5080.074399264002

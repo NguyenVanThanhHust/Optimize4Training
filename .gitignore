@@ -3,6 +3,7 @@ logs/*
 runs/*
 lightning_logs/*
 *.pth
+*.out
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
