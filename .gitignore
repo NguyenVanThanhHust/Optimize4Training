@@ -1,7 +1,7 @@
-data/*
-logs/*
-runs/*
-lightning_logs/*
+cifar/data/*
+cifar/logs/*
+cifar/runs/*
+cifar/lightning_logs/*
 *.pth
 *.out
 
