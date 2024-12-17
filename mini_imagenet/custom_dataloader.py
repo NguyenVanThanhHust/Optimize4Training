@@ -252,7 +252,8 @@ def fast_collate(batch):
             nump_array = np.expand_dims(nump_array, axis=-1)
         nump_array = np.rollaxis(nump_array, 2)
 
-        tensor[i] += torch.from_numpy(nump_array)
+        # tensor[i] += torch.from_numpy(nump_array)
+        tensor[i] += torch.from_numpy(nump_array.copy())
 
     return tensor, targets
 
