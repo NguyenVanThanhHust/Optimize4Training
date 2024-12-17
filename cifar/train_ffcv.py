@@ -18,7 +18,14 @@ from ffcv.fields import IntField, RGBImageField
 from ffcv.fields.decoders import IntDecoder, SimpleRGBImageDecoder
 from ffcv.loader import Loader, OrderOption
 from ffcv.pipeline.operation import Operation
-from ffcv.transforms import RandomHorizontalFlip, Cutout, \
-    RandomTranslate, Convert, ToDevice, ToTensor, ToTorchImage
+from ffcv.transforms import (
+    RandomHorizontalFlip,
+    Cutout,
+    RandomTranslate,
+    Convert,
+    ToDevice,
+    ToTensor,
+    ToTorchImage,
+)
 from ffcv.transforms.common import Squeeze
 from ffcv.writer import DatasetWriter

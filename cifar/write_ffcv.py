@@ -10,23 +10,22 @@ import torchvision
 from ffcv.writer import DatasetWriter
 from ffcv.fields import IntField, RGBImageField
 
+
 def main():
     datasets = {
-        'train': torchvision.datasets.CIFAR10('./data', train=True, download=True),
-        'test': torchvision.datasets.CIFAR10('./data', train=False, download=True)
-        }
+        "train": torchvision.datasets.CIFAR10("./data", train=True, download=True),
+        "test": torchvision.datasets.CIFAR10("./data", train=False, download=True),
+    }
     out_path = {
-        'train': './data/cifar10_train.beton',
-        'test': './data/cifar10_test.beton',
+        "train": "./data/cifar10_train.beton",
+        "test": "./data/cifar10_test.beton",
     }
 
-    for (name, ds) in datasets.items():
+    for name, ds in datasets.items():
         path = out_path[name]
-        writer = DatasetWriter(path, {
-            'image': RGBImageField(),
-            'label': IntField()
-        })
+        writer = DatasetWriter(path, {"image": RGBImageField(), "label": IntField()})
         writer.from_indexed_dataset(ds)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

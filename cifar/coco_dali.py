@@ -6,7 +6,9 @@ import numpy as np
 import os.path
 
 train_image_root = "../Datasets/COCO/train2017"
-annotations_file = "../Datasets/COCO/annotations_trainval2017/annotations/instances_train2017.json"
+annotations_file = (
+    "../Datasets/COCO/annotations_trainval2017/annotations/instances_train2017.json"
+)
 
 batch_size = 16
 
