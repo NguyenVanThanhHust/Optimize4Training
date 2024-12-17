@@ -166,11 +166,10 @@ def cli_main():
     # ------------
     # testing
     # ------------
-    trainer.test(test_dataloaders=test_loader)
+    trainer.test(dataloaders=test_loader)
 
 
 if __name__ == '__main__':
     cli_main()
 
 # python mnist_dali.py --learning_rate 0.001 --hidden_dim 128 --accelerator cuda
-
