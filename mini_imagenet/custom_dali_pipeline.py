@@ -2,7 +2,6 @@ import torch, math
 
 import threading
 from torch.multiprocessing import Event
-from torch._six import queue
 
 try:
     from nvidia.dali.plugin.pytorch import DALIClassificationIterator
@@ -41,19 +40,19 @@ class HybridTrainPipeline(Pipeline):
 
     def __init__(
         self,
-        batch_size,
-        num_threads,
-        device_id,
-        data_dir,
-        crop,
-        mean,
-        std,
-        local_rank=0,
-        world_size=1,
-        dali_cpu=False,
-        shuffle=True,
-        fp16=False,
-        min_crop_size=0.08,
+        batch_size: int,
+        num_threads: int,
+        device_id: int,
+        data_dir: str,
+        crop: int,
+        mean: torch.Tensor,
+        std: torch.Tensor,
+        local_rank: int = 0,
+        world_size: int = 1,
+        dali_cpu: bool = False,
+        shuffle: bool = True,
+        fp16: bool = False,
+        min_crop_size: float = 0.08,
     ):
         # Set seed = -1 because we recreate pipeline at every epoch
         super(HybridTrainPipeline, self).__init__(
@@ -261,17 +260,179 @@ class DaliIterator:
 
 
 def _preproc_worker(
-    dali_iterator,
-    cuda_stream,
-    fp16,
-    mean,
-    std,
-    output_queue,
-    proc_next_input,
-    done_event,
-    pin_memory,
+    dali_iterator: Any,  # Replace Any with the specific type if known
+    cuda_stream: Stream,
+    fp16: bool,
+    mean: torch.Tensor,
+    std: torch.Tensor,
+    output_queue: Queue[tuple[torch.Tensor, torch.Tensor]],
+    proc_next_input: threading.Event,
+    done_event: threading.Event,
+    pin_memory: bool
 ):
     """
     Worker function to parse DALI output & apply final preprocessing steps
     """
-    return
+    while not done_event.is_set():
+        # Wait until main thread signla to proc_next_input 
+        proc_next_input.wait()
+        proc_next_input.clear()
+        
+        if done_event.is_set():
+            print('Shutting down preprocess thread')
+            break
+        try:
+            data = next(dali_iterator)
+            
+            # decode the data output
+            input_original = data[0]['data']
+            target = data[0]['label'].squeeze(0).long()
+            
+            # Copy data to GPU and apply findal processing in seperate CUDA stream
+            with torch.cuda.stream(cuda_stream):
+                input = input_original
+                if pin_memory:
+                    input = input.pin_memory()
+                    del input_original
+                input = input.cuda(non_blocking=True)
+                # Convert from B, H, W, C -> B, C, H, W
+                input = input.permute(0, 3, 1, 2)
+                
+                # Input tensor is kept as 8-bit inter for transfer to GPU
+                if fp16:
+                    input = input.half()
+                else:
+                    input = input.float()
+                    
+                input = input.sub_(mean).div_(std)
+            
+            # Put the result on the queue
+            output_queue.put((input, target))
+        except StopIteration:
+            print("Resetting DALI loader")
+            dali_iterator.reset()
+            output_queue.put(None)
+                
+
+class DaliIteratorGPU(DaliIterator):
+    """
+    Wrapper class to decode the DALI iterator output & provide iterator that functions the same as torchvision
+
+    pipelines (Pipeline): DALI pipelines
+    size (int): Number of examples in set
+
+    Note: allow extra inputs to keep compatibility with CPU iterator
+    """
+    def __next__(self):
+        try:
+            data = next(self._dali_interator)
+        except StopIteration:
+            print('Resetting DALI loader')
+            self._dali_iterator.reset()
+            raise StopIteration
+        
+        # decode the data output
+        input = data[0]['data']
+        target = data[0]['label'].squeeze().long()
+        
+        return input, target
+    
+class DaliIteratorCPU(DaliIterator):
+    """
+    Wrapper class to decode the DALI iterator output & provide iterator that functions the same as torchvision
+    Note that permutation to channels first, converting from 8 bit to float & normalization are all performed on GPU
+
+    pipelines (Pipeline): DALI pipelines
+    size (int): Number of examples in set
+    fp16 (bool): Use fp16 as output format, f32 otherwise
+    mean (tuple): Image mean value for each channel
+    std (tuple): Image standard deviation value for each channel
+    pin_memory (bool): Transfer input tensor to pinned memory, before moving to GPU
+    """
+    def __init__(self, fp16=False, mean=(0., 0., 0.), std=(1., 1., 1.), pin_memory=True, **kwargs):
+        super().__init__(**kwargs)
+        print('Using DALI CPU iterator')
+        self.stream = torch.cuda.Stream()
+
+        self.fp16 = fp16
+        self.mean = torch.tensor(mean).cuda().view(1, 3, 1, 1)
+        self.std = torch.tensor(std).cuda().view(1, 3, 1, 1)
+        self.pin_memory = pin_memory
+
+        if self.fp16:
+            self.mean = self.mean.half()
+            self.std = self.std.half()
+
+        self.proc_next_input = Event()
+        self.done_event = Event()
+        self.output_queue = queue.Queue(maxsize=5)
+        self.preproc_thread = threading.Thread(
+            target=_preproc_worker,
+            kwargs={'dali_iterator': self._dali_iterator, 'cuda_stream': self.stream, 'fp16': self.fp16, 'mean': self.mean, 'std': self.std, 'proc_next_input': self.proc_next_input, 'done_event': self.done_event, 'output_queue': self.output_queue, 'pin_memory': self.pin_memory})
+        self.preproc_thread.daemon = True
+        self.preproc_thread.start()
+
+        self.proc_next_input.set()
+
+    def __next__(self):
+        torch.cuda.current_stream().wait_stream(self.stream)
+        data = self.output_queue.get()
+        self.proc_next_input.set()
+        if data is None:
+            raise StopIteration
+        return data
+
+    def __del__(self):
+        self.done_event.set()
+        self.proc_next_input.set()
+        torch.cuda.current_stream().wait_stream(self.stream)
+        self.preproc_thread.join()
+
+
+class DaliIteratorCPUNoPrefetch(DaliIterator):
+    """
+    Wrapper class to decode the DALI iterator output & provide iterator that functions the same as torchvision
+    Note that permutation to channels first, converting from 8 bit to float & normalization are all performed on GPU
+
+    pipelines (Pipeline): DALI pipelines
+    size (int): Number of examples in set
+    fp16 (bool): Use fp16 as output format, f32 otherwise
+    mean (tuple): Image mean value for each channel
+    std (tuple): Image standard deviation value for each channel
+    pin_memory (bool): Transfer input tensor to pinned memory, before moving to GPU
+    """
+    def __init__(self, fp16, mean, std, pin_memory=True, **kwargs):
+        super().__init__(**kwargs)
+        print('Using DALI CPU iterator')
+
+        self.stream = torch.cuda.Stream()
+
+        self.fp16 = fp16
+        self.mean = torch.tensor(mean).cuda().view(1, 3, 1, 1)
+        self.std = torch.tensor(std).cuda().view(1, 3, 1, 1)
+        self.pin_memory = pin_memory
+
+        if self.fp16:
+            self.mean = self.mean.half()
+            self.std = self.std.half()
+
+    def __next__(self):
+        data = next(self._dali_iterator)
+
+        # Decode the data output
+        input = data[0]['data']
+        target = data[0]['label'].squeeze().long()  # DALI should already output target on device
+
+        # Copy to GPU & apply final processing in seperate CUDA stream
+        input = input.cuda(non_blocking=True)
+
+        input = input.permute(0, 3, 1, 2)
+
+        # Input tensor is transferred to GPU as 8 bit, to save bandwidth
+        if self.fp16:
+            input = input.half()
+        else:
+            input = input.float()
+
+        input = input.sub_(self.mean).div_(self.std)
+        return input, target
