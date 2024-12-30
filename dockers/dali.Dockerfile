@@ -1,4 +1,4 @@
-FROM nvcr.io/nvidia/pytorch:24.11-py3
+FROM nvcr.io/nvidia/pytorch:24.09-py3
 
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get upgrade -y &&\

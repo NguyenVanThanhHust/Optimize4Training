@@ -1,5 +1,4 @@
-# FROM nvcr.io/nvidia/pytorch:23.03-py3
-FROM nvidia/cuda:12.1.1-cudnn8-devel-ubuntu22.04
+FROM nvidia/cuda:12.3.2-cudnn9-devel-ubuntu22.04
 LABEL maintainer="Konstantin Schürholt <konstantin.schuerholt@unisg.ch>"
 # based on https://github.com/JulianAssmann/opencv-cuda-docker
 
