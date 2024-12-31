@@ -74,7 +74,7 @@ RUN cd /opt/ &&\
         ..
 # Make
 WORKDIR /opt/opencv-${OPENCV_VERSION}/build
-RUN make -j12 && \
+RUN make && \
     # Install to /usr/local/lib
     make install && \
     ldconfig &&\

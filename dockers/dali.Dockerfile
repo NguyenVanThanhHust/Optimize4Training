@@ -1,4 +1,4 @@
-FROM nvcr.io/nvidia/pytorch:24.09-py3
+FROM nvcr.io/nvidia/pytorch:24.12-py3
 
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get upgrade -y &&\
@@ -11,11 +11,7 @@ RUN apt-get update && apt-get upgrade -y &&\
         unzip \
         yasm \
         pkg-config \
-        libtbb2 \
-        libpostproc-dev \
         libeigen3-dev \
     && rm -rf /var/lib/apt/lists/*
-
-RUN python -m pip install lightning
 
 WORKDIR /workspace/
