@@ -3,6 +3,9 @@
 ## Install
 docker run --rm --name pytorch_dev_ctn -it --gpus all  --ipc=host --ulimit memlock=-1 --ulimit stack=67108864  --volume="$PWD:/workspace" nvcr.io/nvidia/pytorch:24.09-py3 /bin/bash
 
+## TODO 
+- Visualize pytorch memory consumption
+
 ## How to run
 Run mnist with DALI and pytorch lightning
 ```
