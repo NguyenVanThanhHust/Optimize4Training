@@ -4,6 +4,7 @@ cifar/runs/*
 cifar/lightning_logs/*
 *.pth
 *.out
+*.tar
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

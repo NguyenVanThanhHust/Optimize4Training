@@ -14,4 +14,5 @@ RUN apt-get update && apt-get upgrade -y &&\
         libeigen3-dev \
     && rm -rf /var/lib/apt/lists/*
 
+RUN pip install pytorch-lightning
 WORKDIR /workspace/

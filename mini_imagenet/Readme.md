@@ -8,6 +8,10 @@ Split mini image net data
 python split.py --input ../../Datasets/mini_imagenet/ --output ../../Datasets/split_mini_imagenet/
 ```
 
+
+
+
+Train the pipeline
 ```
-python main.py /workspace/Datasets/split_mini_imagenet/
+python main_dali.py /workspace/Datasets/split_mini_imagenet/
 ```
