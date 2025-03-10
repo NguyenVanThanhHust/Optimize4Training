@@ -37,15 +37,25 @@ class MiniImageNetDataset(Dataset):
 
     def __getitem__(self, index):
         im_path, label = self.data_info[index]
-        im = Image.open(im_path)
+        im = Image.open(im_path).convert('RGB')
         if self.transform is not None:
             im = self.transform(im)
-        label = torch.tensor(label, dtype=torch.int8)
+        label = torch.tensor(label, dtype=torch.long)
         return im, label
 
+def build_transform():
+    train_transforms = transforms.Compose([
+        transforms.Resize((256, 256)),  # Resize the image to 256x256 pixels
+        transforms.RandomCrop((224, 224)),  # Resize the image to 256x256 pixels
+        transforms.RandomHorizontalFlip(p=0.5),  # Randomly flip the image horizontally with a probability of 0.5
+        transforms.ToTensor()  # Convert the image to a tensor
+    ])
+    return train_transforms
+    
 if __name__ == '__main__':
     train_transforms = transforms.Compose([
         transforms.Resize((256, 256)),  # Resize the image to 256x256 pixels
+        transforms.RandomCrop((224, 224)),  # Resize the image to 256x256 pixels
         transforms.RandomHorizontalFlip(p=0.5),  # Randomly flip the image horizontally with a probability of 0.5
         transforms.ToTensor()  # Convert the image to a tensor
     ])

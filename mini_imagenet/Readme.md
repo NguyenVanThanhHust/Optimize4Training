@@ -8,10 +8,13 @@ Split mini image net data
 python split.py --input ../../Datasets/mini_imagenet/ --output ../../Datasets/split_mini_imagenet/
 ```
 
+Train base model
+```
+python train.py model=mini_imnet_resnet hparams=resnet_baseline
+```
 
 
-
-Train the pipeline
+Train model with dali loader
 ```
 python main_dali.py /workspace/Datasets/split_mini_imagenet/
 ```
